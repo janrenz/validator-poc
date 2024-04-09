@@ -27,7 +27,7 @@
         <div id="prompt">
             <h1>POC VIDIS Validator im IFrame</h1>
             <button onclick="sender()">
-                Teile dein Schülerstatus mit .... 
+                Klick hier um  dein Schülerstatus mit der Seite <span id="callingSiteName"></span> zu teilen 
             </button>
             <p>
                 Wenn keine Vidis Session da wäre könnte man hier noch per BroadcastChannel auf state-changes lauschen.
@@ -36,4 +36,7 @@
         <div id="result"></div>
       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script>
+            document.getElementById('callingSiteName').innerText =window.top.origin ;
+        </script>
     </body>
