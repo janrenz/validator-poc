@@ -1,0 +1,40 @@
+<head>
+<meta charset="utf-8">
+<script>
+    const channel = new BroadcastChannel("vidisvalidator");
+    channel.onmessage = (event) => {
+        console.log(event);
+    };
+    window.onmessage = function(e) { // inside the parent
+        console.log(e.data.type);
+        console.log(e.data.payload);
+
+       // if (event.origin !== "http://example.org:8080") return;
+       if (e.data.payload){
+        document.getElementById("inputtext").value = e.data.payload;
+       }
+     
+       //}
+    };
+  
+</script>
+
+</head>
+<body>
+    <h1>POC VIDIS Validator</h1>
+    <p>
+        Idee: Übertragung eine Schülerstatus ohne Server zu Serverkommunikation. 
+        <a href="validator.html" target="_blank">Vidis Seite öffnen</a>
+    </p>
+
+    <form>
+        <input type="text" id="inputtext" value="none"></input><br />
+        <iframe src="validator.html" width="500" height="250"></iframe><br />
+        <button type="submit">Submit</button>
+    </form>
+    
+    <button onclick="">
+        VIDIS Status Abfrage aus Bestellseite triggern
+    </button>
+    
+</body>

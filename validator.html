@@ -1,0 +1,26 @@
+<head>
+    <meta charset="utf-8">
+    <script>
+        // const channel = new BroadcastChannel("vidisvalidator");
+        // this is a jwt that would be created by the server
+        var msg = {
+            type: "vidis_validation",
+            payload: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9lIENvb2wiLCJyb2xlIjoic3R1ZGVudCIsInZlcmlmaWVkX2J5IjoiQllDIn0.1aU88S64PH7NUaWiJA8WBkUNbLLZ7eJzhvScE8OQxq8"
+        }
+   
+        function sender(){
+            window.top.postMessage(msg); 
+        }
+    
+  
+       
+    </script>
+    
+    </head>
+    <body>
+        <h1>POC VIDIS Validator</h1>
+        <button onclick="sender()">
+            Teile dein Schülerstatus mit ....
+        </button>
+        
+    </body>
