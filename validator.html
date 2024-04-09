@@ -10,6 +10,8 @@
    
         function sender(){
             window.top.postMessage(msg); 
+            document.getElementById("prompt").hidden = true;
+            document.getElementById("result").innerHTML = "Gesendet";
         }
     
   
@@ -18,9 +20,13 @@
     
     </head>
     <body>
-        <h1>POC VIDIS Validator</h1>
-        <button onclick="sender()">
-            Teile dein Schülerstatus mit ....
-        </button>
+        <div id="prompt">
+            <h1>POC VIDIS Validator</h1>
+            <button onclick="sender()">
+                Teile dein Schülerstatus mit ....
+            </button>
+        </div>
+        <div id="result"></div>
+      
         
     </body>
