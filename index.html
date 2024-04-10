@@ -11,20 +11,31 @@
         console.log(event);
     };
     window.onmessage = function(e) { // inside the parent
-        console.log(e.data.type);
-        console.log(e.data.payload);
+        console.log(e.data);
 
        // if (event.origin !== "http://example.org:8080") return;
        // we would test for a valid vidis source here
        if (e.data.payload){
         document.getElementById("inputtext").value = e.data.payload;
        }
+       console.log("set name to" + e.data.vidisname);
+       if (e.data.vidisname){
+       
+        document.getElementById("inputname").removeAttribute('readonly');
+        document.getElementById("inputname").value = e.data.vidisname;
+        document.getElementById("inputname").setAttribute('readonly');
+       }
      
        //}
     };
   
 </script>
+<style>
 
+    body {
+        background-color: white;
+    }
+</style>
 </head>
 <body>
     <h1>POC VIDIS Validator</h1>
@@ -36,6 +47,7 @@
     <form>
         Nach dem erfolgreichen Valideren steht dann hier ein JWT, der serverseitig validert werden kann. <br />
         <input type="text" id="inputtext" value="none"></input><br /><br />
+        <input id="inputname" readonly value="" ></input><br />
         <iframe src="validator.html" width="500" height="250"></iframe><br />
         <button type="submit">submit Form</button>
     </form>
